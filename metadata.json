@@ -1,0 +1,6 @@
+{
+  "name": "Small Business Accounting System",
+  "description": "Enterprise NetSuite-style accounting & financial ERP system for Small Business featuring General Ledger, Tax Compliance, Invoicing, AP/AR, Fixed Assets, and Financial Reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

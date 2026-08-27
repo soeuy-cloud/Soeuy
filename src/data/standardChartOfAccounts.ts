@@ -1,0 +1,111 @@
+import { Account, AccountType, CurrencyCode } from '../types';
+
+export interface RawCOAItem {
+  summary: boolean;
+  number?: string;
+  name: string;
+  type: AccountType;
+  description?: string;
+  currency?: CurrencyCode;
+}
+
+export const RAW_CHART_OF_ACCOUNTS: RawCOAItem[] = [
+  // Page 1: Non-Posting / System & Balance Accounts
+  { summary: false, number: 'ACC-DEP', name: 'Accumulated Depreciation', type: 'Deferred Expense' },
+  { summary: false, number: 'CTA-ELIM', name: 'Cumulative Translation Adjustment-Elimination', type: 'Equity' },
+  { summary: false, number: 'NP-EST', name: 'Estimates', type: 'Non Posting' },
+  { summary: false, number: 'NP-OPP', name: 'Opportunities', type: 'Non Posting' },
+  { summary: false, number: 'NP-PO', name: 'Purchase Orders', type: 'Non Posting', description: 'tax control account for sales VAT for thailand' },
+  { summary: false, number: 'NP-RA', name: 'Return Authorizations', type: 'Non Posting', description: 'deferred input(purchase) tax account for thailand' },
+  { summary: false, number: 'NP-SO', name: 'Sales Orders', type: 'Non Posting' },
+  { summary: false, number: 'NP-UCP', name: 'Unapproved Customer Payments', type: 'Non Posting' },
+  { summary: false, number: 'NP-UER', name: 'Unapproved Expense Reports', type: 'Non Posting' },
+  { summary: false, number: 'AS-ADV-PAID', name: 'Advances Paid', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-DIVAT-TH', name: 'Deffered Input VAT (TH)', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-GSTP-MY', name: 'GST on Purchases MY', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-GSTP-SG', name: 'GST on Purchases SG', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-PPNP-ID', name: 'PPN on Purchases ID', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-PRNC', name: 'Purchases Returned Not Credited', type: 'Other Current Asset' },
+  { summary: false, number: 'LB-ACCPUR', name: 'Accrued Purchases', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-DOVAT-TH', name: 'Deferred Output VAT (TH)', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-GSTL-MY', name: 'GST Liability MY', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-GSTL-SG', name: 'GST Liability SG', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-GSTS-MY', name: 'GST on Sales MY', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-GSTS-SG', name: 'GST on Sales SG', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-PPNL-ID', name: 'PPN Liability ID', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-PPNS-ID', name: 'PPN on Sales ID', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-REFPAY', name: 'Refunds Payable', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATL-CN', name: 'VAT Liability CN', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATL-KH', name: 'VAT Liability KH', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATL-LA', name: 'VAT Liability LA', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATL-MM', name: 'VAT Liability MM', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATL-TH', name: 'VAT Liability TH', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATL-VN', name: 'VAT Liability VN', type: 'Other Current Liability' },
+  { summary: false, number: 'AS-VATP-CN', name: 'VAT on Purchases CN', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-VATP-KH', name: 'VAT on Purchases KH', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-VATP-LA', name: 'VAT on Purchases LA', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-VATP-MM', name: 'VAT on Purchases MM', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-VATP-TH', name: 'VAT on Purchases TH', type: 'Other Current Asset' },
+  { summary: false, number: 'AS-VATP-VN', name: 'VAT on Purchases VN', type: 'Other Current Asset' },
+  { summary: false, number: 'LB-VATS-CN', name: 'VAT on Sales CN', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATS-KH', name: 'VAT on Sales KH', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATS-LA', name: 'VAT on Sales LA', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATS-MM', name: 'VAT on Sales MM', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATS-TH', name: 'VAT on Sales TH', type: 'Other Current Liability' },
+  { summary: false, number: 'LB-VATS-VN', name: 'VAT on Sales VN', type: 'Other Current Liability' },
+  { summary: false, number: 'NP-VRA', name: 'Vendor Return Authorizations', type: 'Non Posting' },
+  { summary: false, number: '3200', name: 'Opening Balance', type: 'Equity' },
+  { summary: false, number: '3202', name: 'Opening Balance AP', type: 'Equity' },
+
+  // Cash & Bank (Cambodia / Regional)
+  { summary: false, number: 'AS70100101', name: 'Cash in Hand - Phnom Penh KHR', type: 'Bank', currency: 'KHR', description: 'Cash in Hand - Phnom Penh KHR' },
+  { summary: false, number: 'AS70100102', name: 'Cash in Hand - Phnom Penh USD', type: 'Bank', currency: 'USD', description: 'Cash in Hand - Phnom Penh USD' },
+  { summary: false, number: 'AS70100103', name: 'Cash in Hand - Siem Reap KHR', type: 'Bank', currency: 'KHR', description: 'Cash in Hand - Siem Reap KHR' },
+  { summary: false, number: 'AS70100104', name: 'Cash in Hand - Siem Reap USD', type: 'Bank', currency: 'USD', description: 'Cash in Hand - Siem Reap USD' },
+  { summary: false, number: 'AS70100105', name: 'Cash in Hand - Battambang KHR', type: 'Bank', currency: 'KHR', description: 'Cash in Hand - Battambang KHR' },
+  { summary: false, number: 'AS70100106', name: 'Cash in Hand - Battambang USD', type: 'Bank', currency: 'USD', description: 'Cash in Hand - Battambang USD' },
+  { summary: false, number: 'AS70105101', name: 'Cash in Bank - CPB PP USD', type: 'Bank', currency: 'USD', description: 'Cash in Bank - CPB PP USD' },
+  { summary: false, number: 'AS70105102', name: 'Cash in Bank - ACE CCPB PP USD', type: 'Bank', currency: 'USD', description: 'Cash in Bank - ACE CCPB PP USD' },
+  { summary: false, number: 'AS70105103', name: 'Cash in Bank - CPB PP EUR', type: 'Bank', currency: 'EUR', description: 'Cash in Bank - CPB PP EUR' },
+  { summary: false, number: 'AS70105104', name: 'Cash in Bank - CPB SR USD', type: 'Bank', currency: 'USD', description: 'Cash in Bank - CPB SR USD' },
+  { summary: false, number: 'AS70105105', name: 'Cash in Bank - FTBC PP USD', type: 'Bank', currency: 'USD', description: 'Cash in Bank - FTBC PP USD' },
+  { summary: false, number: 'AS70105106', name: 'Cash in Bank - CMBP PP USD', type: 'Bank', currency: 'USD', description: 'Cash in Bank - CMBP PP USD' },
+  { summary: false, number: 'AS70105107', name: 'Cash at Bank - ATC DBS Sing USD', type: 'Bank', currency: 'USD', description: 'Cash at Bank - ATC DBS Sing USD' },
+  { summary: false, number: 'AS70105108', name: 'Cash at Bank - MBPP USD', type: 'Bank', currency: 'USD', description: 'Cash at Bank - MBPP USD' },
+  { summary: false, number: 'AS70100001', name: 'Undeposited Funds (to be entered in correct account)', type: 'Other Current Asset', description: 'Undeposited Funds' },
+  
+  // Cash Equivalents & Securities
+  { summary: true, number: 'AS7015', name: 'Asset Cash Pool Thomas Cook', type: 'Other Current Asset' },
+  { summary: false, number: 'AS70151000', name: 'Asset Cash Pool Thomas Cook', type: 'Other Current Asset' },
+  { summary: true, number: 'AS7017', name: 'Excess Cash', type: 'Other Current Asset' },
+  { summary: false, number: 'AS70171000', name: 'Excess Cash', type: 'Other Current Asset' },
+  { summary: true, number: 'AS7020', name: 'Cash equiv. original term < 90 days', type: 'Other Current Asset' },
+  { summary: false, number: 'AS70201000', name: 'Cash equiv. original term < 90 days', type: 'Other Current Asset' },
+  { summary: true, number: 'AS7030', name: 'Cash equiv. original term > 90 days', type: 'Other Current Asset' },
+  { summary: false, number: 'AS70301000', name: 'Cash equiv. original term > 90 days', type: 'Other Current Asset' },
+  { summary: true, number: 'AS7040', name: 'Securities at Fair Value', type: 'Other Current Asset' },
+  { summary: false, number: 'AS70401000', name: 'Securities at Fair Value', type: 'Other Current Asset' },
+  { summary: true, number: 'AS7050', name: 'Non-realised gains on Securities', type: 'Other Current Asset' },
+  { summary: false, number: 'AS70501000', name: 'Non-realised gains on securities', type: 'Other Current Asset' },
+
+  // Accounts Receivable & Advances
+  { summary: true, number: 'AS8010', name: 'Accounts Receivable Third', type: 'Accounts Receivable' },
+  { summary: false, number: 'AS80101000', name: 'Accounts Receivable Third', type: 'Accounts Receivable' },
+  { summary: false, number: 'AS80101001', name: 'Accounts Receivable (Accrued AR for Unissued Invoice)', type: 'Other Current Asset' },
+  { summary: false, number: 'AS80101002', name: 'Suspense Account A/R Third', type: 'Other Current Asset' },
+  { summary: false, number: 'AS80101003', name: 'Contra Account A/R Third', type: 'Other Current Asset' },
+  { summary: true, number: 'AS8015', name: 'Accounts Receivable IC', type: 'Accounts Receivable' },
+  { summary: false, number: 'AS80151000', name: 'Accounts Receivable IC', type: 'Accounts Receivable' },
+  { summary: true, number: 'AS8020', name: 'Provisions for bad debts', type: 'Other Current Asset' },
+  { summary: false, number: 'AS80201000', name: 'Provisions for bad debts', type: 'Other Current Asset' },
+  { summary: true, number: 'AS8030', name: 'Advance Payments to Suppliers', type: 'Accounts Payable' },
+  { summary: false, number: 'AS80301000', name: 'Advance to Suppliers - Trade', type: 'Accounts Payable' },
+  { summary: false, number: 'AS80301001', name: 'Refundable Deposits to Suppliers', type: 'Accounts Payable' },
+  { summary: false, number: 'AS80301003', name: 'Advance to Suppliers - Non Trade', type: 'Accounts Payable' },
+  { summary: false, number: 'AS80301002', name: 'Advance to Employee', type: 'Accounts Receivable' },
+  { summary: true, number: 'AS8030x', name: 'Advance Payments to Suppliersx', type: 'Accounts Receivable' },
+  { summary: true, number: 'AS8040', name: 'Guarantee Payments to Suppliers', type: 'Accounts Receivable' },
+  { summary: false, number: 'AS80401000', name: 'Guarantee Payments to Suppliers', type: 'Accounts Receivable' },
+  { summary: true, number: 'AS8045', name: 'Fair Value Gains on FVH', type: 'Other Current Asset' },
+  { summary: false, number: 'AS80451000', name: 'Fair Value Gains on FVH', type: 'Other Current Asset' }
+];
